@@ -75,8 +75,6 @@ self.addEventListener("push", function (event) {
         primaryKey: "2",
       },
     };
-    console.log("LLOOOOOGGGG", event);
-
     event.waitUntil(self.registration.showNotification(data.title, options));
   }
 });
@@ -84,5 +82,5 @@ self.addEventListener("push", function (event) {
 self.addEventListener("notificationclick", function (event) {
   console.log("Notification click received.");
   event.notification.close();
-  event.waitUntil(clients.openWindow("<https://pwa-five-smoky.vercel.app/>"));
+  event.waitUntil(clients.openWindow("https://pwa-five-smoky.vercel.app"));
 });
