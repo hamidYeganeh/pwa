@@ -69,6 +69,17 @@ export function PushNotificationManager() {
     }
   }
 
+  useEffect(() => {
+    window.addEventListener("appinstalled", () => {
+      console.log("Thank you for installing our app!");
+    });
+
+    return () =>
+      window.removeEventListener("appinstalled", () => {
+        console.log("Thank you for installing our app!");
+      });
+  }, []);
+
   if (!isSupported) {
     return <p>Push notifications are not supported in this browser.</p>;
   }
