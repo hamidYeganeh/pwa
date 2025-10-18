@@ -2,14 +2,10 @@
 
 import webpush from "web-push";
 
-const VAPID_PUBLIC_KEY =
-  "BJHi7AktEHH_yPNkjC09uBxoFGfWzoJgdqCCe2INpLwyXat5DZf79J56cIV0RlNeyw8Zvskm2u46ooFEe6FQZLA";
-const VAPID_PRIVATE_KEY = "p5nuN5SoahQKRS7jc02ZZVDbD3O7g5Kj_LCuo-WuXyI";
-
 webpush.setVapidDetails(
-  "<mailto:hamidyeganeh82@gmail.com>",
-  VAPID_PUBLIC_KEY,
-  VAPID_PRIVATE_KEY
+  "mailto:hamidyeganeh82@gmail.com",
+  process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
+  process.env.NEXT_PUBLIC_VAPID_PRIVATE_KEY!
 );
 
 let subscription: PushSubscription | null = null;
@@ -45,6 +41,6 @@ export async function sendNotification(message: string) {
     return { success: true };
   } catch (error) {
     console.error("Error sending push notification:", error);
-return { success: false, error: "Failed to send notification" };
+    return { success: false, error: "Failed to send notification" };
   }
 }

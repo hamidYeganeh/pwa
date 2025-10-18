@@ -11,6 +11,8 @@ self.addEventListener("push", function (event) {
         primaryKey: "2",
       },
     };
+    console.log("LLOOOOOGGGG", event);
+
     event.waitUntil(self.registration.showNotification(data.title, options));
   }
 });
