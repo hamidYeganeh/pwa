@@ -23,11 +23,25 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     screenshots: [
       {
-        src: "./screenshot-1.png",
+        src: "/screenshot-1.png",
         sizes: "1280x720",
         platform: "android",
         label:
-          "The main PWAmp user interface, showing a list of songs, and playback buttons.",
+          "اﮐﯿﭙﻮ ﯾﮏ ﻓﺮﺻﺖ ﺳﺮﻣﺎﯾﻪ ﮔﺬارى ﺳﺎده اﺳﺖ ﮐﻪ ﺑﻪ ﺷﻤﺎ اﯾﻦ ﻓﺮﺻﺖ را ﻣﯿﺪﻫﺪ ﺗﺎ در ﺑﺎزار ﻣﻠﮏ و ﻣﺴﺘﻐﻼت از 100 ﻫﺰار ﺗﻮﻣﺎن ﺳﺮﻣﺎﯾﻪ ﮔﺬارى ﮐﻨﯿﺪ",
+      },
+      {
+        src: "/screenshot-2.png",
+        sizes: "1280x720",
+        platform: "android",
+        label:
+          "اﮐﯿﭙﻮ ﯾﮏ ﻓﺮﺻﺖ ﺳﺮﻣﺎﯾﻪ ﮔﺬارى ﺳﺎده اﺳﺖ ﮐﻪ ﺑﻪ ﺷﻤﺎ اﯾﻦ ﻓﺮﺻﺖ را ﻣﯿﺪﻫﺪ ﺗﺎ در ﺑﺎزار ﻣﻠﮏ و ﻣﺴﺘﻐﻼت از 100 ﻫﺰار ﺗﻮﻣﺎن ﺳﺮﻣﺎﯾﻪ ﮔﺬارى ﮐﻨﯿﺪ",
+      },
+      {
+        src: "/screenshot-3.png",
+        sizes: "1280x720",
+        platform: "android",
+        label:
+          "اﮐﯿﭙﻮ ﯾﮏ ﻓﺮﺻﺖ ﺳﺮﻣﺎﯾﻪ ﮔﺬارى ﺳﺎده اﺳﺖ ﮐﻪ ﺑﻪ ﺷﻤﺎ اﯾﻦ ﻓﺮﺻﺖ را ﻣﯿﺪﻫﺪ ﺗﺎ در ﺑﺎزار ﻣﻠﮏ و ﻣﺴﺘﻐﻼت از 100 ﻫﺰار ﺗﻮﻣﺎن ﺳﺮﻣﺎﯾﻪ ﮔﺬارى ﮐﻨﯿﺪ",
       },
     ],
     shortcuts: [
