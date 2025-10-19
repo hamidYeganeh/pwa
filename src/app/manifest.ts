@@ -21,5 +21,23 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
       },
     ],
+    screenshots: [
+      {
+        src: "./screenshot-1.png",
+        sizes: "1280x720",
+        platform: "android",
+        label:
+          "The main PWAmp user interface, showing a list of songs, and playback buttons.",
+      },
+    ],
+    shortcuts: [
+      {
+        name: "business page",
+        short_name: "business",
+        description: "open business page",
+        url: "/business",
+        icons: [{ src: "/icon-192x192.png", sizes: "192x192" }],
+      },
+    ],
   };
 }
