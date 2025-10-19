@@ -1,66 +1,71 @@
-const CACHE_NAME = "pwa-cache-v2";
-const OFFLINE_URL = "/offline";
+// const CACHE_NAME = "pwa-cache-v2";
+// const OFFLINE_URL = "/offline";
 
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log("Opened cache");
-      return cache.add(OFFLINE_URL);
-    })
-  );
-  self.skipWaiting();
-});
+// self.addEventListener("install", (event) => {
+//   event.waitUntil(
+//     caches.open(CACHE_NAME).then((cache) => {
+//       console.log("Opened cache");
+//       return cache.add(OFFLINE_URL);
+//     })
+//   );
+//   self.skipWaiting();
+// });
 
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            console.log("Deleting old cache:", cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
-  self.clients.claim();
-});
+// self.addEventListener("beforeinstallprompt", (event) => {
+//   console.log("beforeinstallprompt", { event });
+// });
+// self.addEventListener("activate", (event) => {
+//   console.log("ACTIVATE", event);
 
-self.addEventListener("fetch", (event) => {
-  if (event.request.mode === "navigate") {
-    event.respondWith(
-      (async () => {
-        try {
-          const networkResponse = await fetch(event.request);
-          return networkResponse;
-        } catch (error) {
-          console.log("Fetch failed; returning offline page instead.", error);
-          const cache = await caches.open(CACHE_NAME);
-          const cachedResponse = await cache.match(OFFLINE_URL);
-          return cachedResponse;
-        }
-      })()
-    );
-  } else if (
-    event.request.destination === "style" ||
-    event.request.destination === "script" ||
-    event.request.destination === "image"
-  ) {
-    event.respondWith(
-      caches.open(CACHE_NAME).then(async (cache) => {
-        const cachedResponse = await cache.match(event.request);
-        const fetchedResponse = fetch(event.request).then((networkResponse) => {
-          cache.put(event.request, networkResponse.clone());
-          return networkResponse;
-        });
-        return cachedResponse || fetchedResponse;
-      })
-    );
-  } else {
-    event.respondWith(fetch(event.request));
-  }
-});
+//   // event.waitUntil(
+//   //   caches.keys().then((cacheNames) => {
+//   //     return Promise.all(
+//   //       cacheNames.map((cacheName) => {
+//   //         if (cacheName !== CACHE_NAME) {
+//   //           console.log("Deleting old cache:", cacheName);
+//   //           return caches.delete(cacheName);
+//   //         }
+//   //       })
+//   //     );
+//   //   })
+//   // );
+//   self.clients.claim();
+// });
+
+// self.addEventListener("fetch", (event) => {
+//   if (event.request.mode === "navigate") {
+//     event.respondWith(
+//       (async () => {
+//         try {
+//           const networkResponse = await fetch(event.request);
+//           return networkResponse;
+//         } catch (error) {
+//           console.log("Fetch failed; returning offline page instead.", error);
+//           const cache = await caches.open(CACHE_NAME);
+//           const cachedResponse = await cache.match(OFFLINE_URL);
+//           return cachedResponse;
+//         }
+//       })()
+//     );
+//   } else if (
+//     event.request.destination === "style" ||
+//     event.request.destination === "script" ||
+//     event.request.destination === "image"
+//   ) {
+//     event.respondWith(
+//       caches.open(CACHE_NAME).then(async (cache) => {
+//         const cachedResponse = await cache.match(event.request);
+//         const fetchedResponse = fetch(event.request).then((networkResponse) => {
+//           cache.put(event.request, networkResponse.clone());
+//           return networkResponse;
+//         });
+//         return cachedResponse || fetchedResponse;
+//       })
+//     );
+//   } else {
+//     event.respondWith(fetch(event.request));
+//   }
+// });
 
 self.addEventListener("push", function (event) {
   if (event.data) {
