@@ -12,7 +12,7 @@ export default function manifest(): MetadataRoute.Manifest {
     launch_handler: {
       client_mode: "navigate-existing",
     },
-    
+
     icons: [
       {
         src: "/icon-192x192.png",
@@ -48,14 +48,14 @@ export default function manifest(): MetadataRoute.Manifest {
           "اﮐﯿﭙﻮ ﯾﮏ ﻓﺮﺻﺖ ﺳﺮﻣﺎﯾﻪ ﮔﺬارى ﺳﺎده اﺳﺖ ﮐﻪ ﺑﻪ ﺷﻤﺎ اﯾﻦ ﻓﺮﺻﺖ را ﻣﯿﺪﻫﺪ ﺗﺎ در ﺑﺎزار ﻣﻠﮏ و ﻣﺴﺘﻐﻼت از 100 ﻫﺰار ﺗﻮﻣﺎن ﺳﺮﻣﺎﯾﻪ ﮔﺬارى ﮐﻨﯿﺪ",
       },
     ],
-    // shortcuts: [
-    //   {
-    //     name: "business page",
-    //     short_name: "business",
-    //     description: "open business page",
-    //     url: "/business",
-    //     icons: [{ src: "/icon-192x192.png", sizes: "192x192" }],
-    //   },
-    // ],
+    shortcuts: [
+      {
+        name: "business page",
+        short_name: "business",
+        description: "open business page",
+        url: "/business",
+        icons: [{ src: "/icon-192x192.png", sizes: "192x192" }],
+      },
+    ],
   };
 }
